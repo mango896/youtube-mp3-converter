@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube to MP3 Converter</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo h1 { color: #333; font-size: 28px; margin-bottom: 10px; }
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .quality-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .quality-option {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .quality-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        .quality-option.selected {
+            border-color: #667eea;
+            background: #e8ecff;
+        }
+        button.convert-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button.convert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        .status-message { margin-top: 20px; padding: 15px; border-radius: 10px; display: none; }
+        .status-message.success {
+            background: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block;
+        }
+        .status-message.error {
+            background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block;
+        }
+        .status-message.info {
+            background: #e7f3ff; color: #004085; border: 1px solid #b8daff; display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>🎵 YouTube to MP3 Converter</h1>
+            <p style="color: #666;">Free & Easy - No Installation Required!</p>
+        </div>
+
+        <div class="input-group">
+            <label for="url">Paste YouTube URL</label>
+            <input type="text" id="url" placeholder="https://www.youtube.com/watch?v=...">
+        </div>
+
+        <div class="quality-selector">
+            <div class="quality-option selected" data-quality="192k">
+                <span>📻 Standard</span>
+            </div>
+            <div class="quality-option" data-quality="256k">
+                <span>🎵 High Quality</span>
+            </div>
+            <div class="quality-option" data-quality="320k">
+                <span>🎧 Best</span>
+            </div>
+            <div class="quality-option" data-quality="128k">
+                <span>⚡ Fast</span>
+            </div>
+        </div>
+
+        <button class="convert-btn" onclick="alert('To convert, run the Python converter!\n\n1. Install yt-dlp: pip install yt-dlp\n2. Run: python scripts/simple_gui.py')">🎵 Convert to MP3</button>
+
+        <div id="status" class="status-message"></div>
+    </div>
+</body>
+</html>
